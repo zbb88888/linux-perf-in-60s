@@ -19,6 +19,7 @@ sudo bash perf-past.sh 30     # 30 秒 delta
 ```
 
 输出目录：
+
 - `perf-in-60s.sh` → `/tmp/perf_scan_60s/`
 - `perf-past.sh` → `/tmp/perf_scan_past/`
 
@@ -31,6 +32,7 @@ sudo bash perf-past.sh 30     # 30 秒 delta
 ### 采集内容
 
 **瞬时快照（立即完成）：**
+
 1. `uptime` — 1/5/15 分钟负载趋势
 2. `dmesg -T` — 最近 50 行内核日志
 3. PSI — Pressure Stall Information (cpu/memory/io)
@@ -38,11 +40,12 @@ sudo bash perf-past.sh 30     # 30 秒 delta
 5. `slabtop` — 内核 Slab 缓存 Top 消费者
 
 **并行采样（DURATION 秒）：**
-6. `vmstat` — 重点看 r (运行队列), si/so (交换), st (偷取时间)
-7. `mpstat -P ALL` — 重点看 %soft/%irq, 各核均衡度
-8. `iostat -sxz` — 重点看 await (响应时间), %util (利用率)
-9. `pidstat` — 定位具体的 CPU/IO 消耗进程
-10. `sar -n DEV,TCP,ETCP` — 网络吞吐 + 重传率
+
+1. `vmstat` — 重点看 r (运行队列), si/so (交换), st (偷取时间)
+2. `mpstat -P ALL` — 重点看 %soft/%irq, 各核均衡度
+3. `iostat -sxz` — 重点看 await (响应时间), %util (利用率)
+4. `pidstat` — 定位具体的 CPU/IO 消耗进程
+5. `sar -n DEV,TCP,ETCP` — 网络吞吐 + 重传率
 
 ### 补强建议
 
